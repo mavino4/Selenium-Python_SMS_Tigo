@@ -1,0 +1,62 @@
+sudo apt-get install libjpeg8-dev
+sudo apt-get install libtiff5-dev
+sudo apt-get install libjasper-dev
+sudo apt-get install libpng12-dev
+
+sudo apt-get install libavcodec-dev 
+sudo apt-get install libavformat-dev
+sudo apt-get install libswscale-dev
+sudo apt-get install libv4l-dev
+sudo apt-get install libxvidcore-dev 
+sudo apt-get install libx264-dev
+
+
+	
+cd ~
+wget https://bootstrap.pypa.io/get-pip.py
+sudo python get-pip.py
+
+
+
+--   Python 2:
+--     Interpreter:                 /home/marco/.virtualenvs/cv/bin/python (ver 3.6.3)
+--     Libraries:                   /usr/lib/x86_64-linux-gnu/libpython3.6m.so (ver 3.6.3)
+--     numpy:                       /home/marco/.virtualenvs/cv/local/lib/python3.6/site-packages/numpy/core/include (ver 1.14.3)
+--     packages path:               lib/python3.6/site-packages
+-- 
+--   Python 3:
+--     Interpreter:                 /usr/bin/python3 (ver 3.6.3)
+--     Libraries:                   /usr/lib/x86_64-linux-gnu/libpython3.6m.so (ver 3.6.3)
+--     numpy:                       /home/marco/.local/lib/python3.6/site-packages/numpy/core/include (ver 1.14.2)
+--     packages path:               lib/python3.6/dist-packages
+
+
+
+
+ls -l /usr/local/lib/python3.6/dist-packages/
+
+
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+    -D CMAKE_INSTALL_PREFIX=/usr/local \
+    -D INSTALL_PYTHON_EXAMPLES=ON \
+    -D INSTALL_C_EXAMPLES=OFF \
+	-D ENABLE_PRECOMPILED_HEADERS=OFF \
+    -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib-3.1.0/modules \
+    -D PYTHON_EXECUTABLE=~/.virtualenvs/cv/bin/python \
+    -D BUILD_EXAMPLES=ON ..
+
+
+
+    cv2.cpython-36m-x86_64-linux-gnu.so
+
+cd /usr/local/lib/python3.6/dist-packages/
+sudo mv cv2.cpython-36m-x86_64-linux-gnu.so cv2.so
+
+
+
+cd ~/.virtualenvs/cv/lib/python3.5/site-packages/
+python3
+
+
+
+
